@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int a,i,j;int *arr;
+    printf("Enter the size of the array\n");
+    scanf("%d",&a);
+    arr=(int *)malloc(sizeof(int)*a);
+     printf("Enter the array elements\n");
+     for(i=0;i<a;i++)
+     {
+        scanf("%d",&arr[i]);
+     }
+     for(i=0;i<a;i++)
+     {
+        printf("%d\t",arr[i]);
+     }
+     
+    if(a%2!=0)
+    {
+       int mid=(a-1)/2;
+       for(i=0,j=a-1;i<mid&&j>mid;i++,j--)
+       {
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+       }
+    }
+    else{
+        for ( i = 0,j=a-1; i <j; i++,j--)
+        {
+           int temp=arr[i];
+           arr[i]=arr[j];
+           arr[j]=temp;
+        }
+        
+    }
+    printf("The reversed array is\n");
+    for(i=0;i<a;i++)
+    {
+      printf("%d\t",arr[i]);
+    }
+
+}
